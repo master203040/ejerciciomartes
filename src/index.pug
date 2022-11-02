@@ -1,0 +1,41 @@
+html
+    head 
+        title= title 
+        link(rel="stylesheet", href="styles/style.css")
+    body 
+        div 
+            h1(class="container")=header1  
+            p compra y venta de vehiculos de todas las marcas
+            ul 
+                li contacto 
+                li servicios 
+                li quienes somos 
+
+                img(src='/imagenes/P1.jpg',title= 'camioneta de nuestra')
+            
+            div
+                h1 las mejores marcas del pais
+                ol(type='a')
+                    for  city in cities 
+                        li=city
+            div
+            table 
+                thead 
+                    th IMG
+                    th Marca 
+                    th Modelo
+                    th Ref
+                    th Motor
+                    th Valor
+                    th Dec%
+                tbody 
+                   for emp in employees 
+                            tr(align='center')
+                                td
+                                    img(src=`imagenes/ ${emp.imagen}`)
+                                td=emp .marca 
+                                td= emp.modelo 
+                                td= emp.ref
+                                td= emp.motor
+                                td(style='color:black')= new Intl.NumberFormat('es-CO').format(emp.valor)
+                                td(style='color:green')= new Intl.NumberFormat('es-CO').format(emp.descuento)
